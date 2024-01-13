@@ -39,9 +39,9 @@ function App() {
     setTheme(!dark);
   };
 
-  const handleChangeValue = () => {
+  const handleChangeValue = useMemo(() => {
     setValue(value + 1);
-  };
+  }, [value]);
 
   const handleList = () => {
     setList(testFunction);

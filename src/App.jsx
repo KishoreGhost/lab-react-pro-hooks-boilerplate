@@ -39,17 +39,19 @@ function App() {
     setTheme(!dark);
   };
 
-  const handleChangeValue = useMemo(() => {
+  const handleChangeValue = () => {
     setValue(value + 1);
-  }, [value]);
+  };
 
   const handleList = () => {
     setList(testFunction);
   };
 
-  const styleTheme = useMemo(() => ({
+  const styleTheme = useMemo(() => {
+    return {
     backgroundColor: dark ? "black" : "#ccc7c7",
-  }), [dark]);
+    }
+  }, [dark]);
   
 
   return (
@@ -58,7 +60,7 @@ function App() {
       <h1>{value}</h1>
       <button onClick={handleChangeValue}>Change Value</button>
       <button onClick={handleList}>Show List</button>
-      <h2>{delayFunction}</h2>
+      <h2>{delayFunction()}</h2>
       <div>
         {currentList.map((item, index) => {
           return <h2 key={index}>{item}</h2>;
